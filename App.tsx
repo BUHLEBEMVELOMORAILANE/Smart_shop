@@ -9,12 +9,13 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Auth">
-        <Stack.Screen name="Auth" component={AuthScreen} />
+      <Stack.Navigator initialRouteName="Spring Smart">
+        <Stack.Screen name="Spring Smart" component={AuthScreen} />
         <Stack.Screen name="Shopping Items" component={ShoppingItemsScreen} />
         <Stack.Screen name="Item Details" component={ShoppingDetailScreen} />
         <Stack.Screen name="About" component={AboutScreen} />
         <Stack.Screen name="Contact" component={ContactScreen} />
+        <Stack.Screen name="Cash Out" component={CashOutScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -96,7 +97,7 @@ function ShoppingItemsScreen({ navigation }) {
             <Text style={styles.itemTitle}>{item.title}</Text>
             <Text style={styles.itemPrice}>{item.price}</Text>
             <Button
-              title="SHOP"
+              title="Shop"
               onPress={() => navigation.navigate('Item Details', {
                 title: item.title,
                 price: item.price,
@@ -109,8 +110,18 @@ function ShoppingItemsScreen({ navigation }) {
       <View style={styles.navButtons}>
         <Button title="About Us" onPress={() => navigation.navigate('About')} />
         <Button title="Contact Us" onPress={() => navigation.navigate('Contact')} />
-        <Button title="cash out" onPress={() => navigation.navigate(' cash out')} />
+        <Button title="Cash Out" onPress={() => navigation.navigate('Cash Out')} />
       </View>
+    </View>
+  );
+}
+
+// Cash Out Screen
+function CashOutScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Cash Out</Text>
+      <Text>Proceed with cashing out your selected items.</Text>
     </View>
   );
 }
